@@ -1,0 +1,26 @@
+<div class="container">
+    <h1>Level 3 Test</h1>
+
+    <div class="question">
+        {{ currentTest?.question }}
+    </div>
+
+    <div class="grid-container" id="gridContainer">
+        @for (cell of currentTest?.possibilities; track cell) {
+        <div [class]="cell==activeCell()? 'grid-cell active':'grid-cell'" [attr.data-value]="cell"
+            (click)="cellClick(cell)">
+            <span class="cell-number">{{cell}}</span>
+        </div>
+        }
+
+    </div>
+
+    <div class="result-message" id="resultMessage" style="display: none;">
+        <p id="resultText"></p>
+    </div>
+
+    <div class="button-group">
+        <button class="submit-btn" (click)="solve()" id="submitBtn">Submit</button>
+        <button class="reset-btn" id="resetBtn">Reset</button>
+    </div>
+</div>

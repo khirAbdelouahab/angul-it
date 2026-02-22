@@ -1,0 +1,163 @@
+
+.container {
+    background: #ffffff;
+    width: 450px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 28px;
+}
+
+.question {
+    font-weight: bold;
+    margin-bottom: 25px;
+    color: #444;
+    font-size: 16px;
+    text-align: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 25px;
+    padding: 10px;
+    background: #f8f9fc;
+    border-radius: 8px;
+}
+
+.grid-cell {
+    aspect-ratio: 1;
+    background: #ffffff;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+}
+
+.grid-cell.active {
+    background: #e8eaf6;
+    border-color: #4e73df;
+    
+}
+
+.grid-cell.selected {
+    background: #4e73df;
+    border-color: #4e73df;
+    color: white;
+    transform: scale(1.05);
+}
+
+.grid-cell.correct {
+    background: #28a745;
+    border-color: #28a745;
+    color: white;
+    animation: pulse 0.5s ease;
+}
+
+.grid-cell.wrong {
+    background: #dc3545;
+    border-color: #dc3545;
+    color: white;
+    animation: shake 0.5s ease;
+}
+
+.grid-cell.disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.cell-number {
+    user-select: none;
+}
+
+.result-message {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.result-message .success {
+    color: #28a745;
+    margin: 0;
+}
+
+.result-message .error {
+    color: #dc3545;
+    margin: 0;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+}
+
+.submit-btn,
+.reset-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.submit-btn {
+    background-color: #4e73df;
+    color: white;
+}
+
+.submit-btn:hover:not(:disabled) {
+    background-color: #2e59d9;
+}
+
+.submit-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.reset-btn {
+    background-color: #6c757d;
+    color: white;
+}
+
+.reset-btn:hover {
+    background-color: #5a6268;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1.05);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    75% {
+        transform: translateX(5px);
+    }
+}

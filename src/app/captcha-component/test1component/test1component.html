@@ -1,0 +1,22 @@
+<div class="container">
+    <h1>Test</h1>
+
+    <div class="question">
+        {{currentTest?.question}}
+    </div>
+
+    <form>
+        <div class="options">
+            <strong>Possible Responses:</strong>
+            <div class="radio-group">
+                @for( possib of currentTest?.possibilities; track possib) {
+                <label class="radio-option">
+                    <input type="radio" [(ngModel)]="answer" name="answer" [value]="possib">
+                    <span>{{possib}}</span>
+                </label>
+                }
+            </div>
+        </div>
+        <button type="button" (click)="solve()">Submit</button>
+    </form>
+</div>
