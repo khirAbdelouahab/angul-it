@@ -1,1 +1,101 @@
-<p>result-component works!</p>
+<div class="container">
+    <!-- Header -->
+    <div class="header">
+        <div class="icon">
+            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="30" cy="30" r="28" stroke="#28a745" stroke-width="4" />
+                <path d="M20 30L26 36L40 22" stroke="#28a745" stroke-width="4" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+        </div>
+        <h1>Challenge Complete!</h1>
+        <p class="subtitle">Here's how you performed</p>
+    </div>
+
+    <!-- Overall Statistics -->
+    <div class="overall-stats">
+        <h2>Overall Statistics</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon attempts">📊</div>
+                <div class="stat-value"> {{ getTotalAttempts() }} </div>
+                <div class="stat-label">Total Attempts</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon success">✓</div>
+                <div class="stat-value"> {{ getTotalSuccesses() }} </div>
+                <div class="stat-label">Total Successes</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon failure">✗</div>
+                <div class="stat-value">{{ getTotalFailures() }}</div>
+                <div class="stat-label">Total Failures</div>
+            </div>
+            <div class="stat-card highlight">
+
+                <div class="stat-value"> {{ (getTotalSuccesses() /  getTotalAttempts()) * 100 | number:'1.0-2' }} %</div>
+                <div class="stat-label">Success Rate</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Level by Level Breakdown -->
+    <div class="level-breakdown">
+        <h2>Level-by-Level Breakdown</h2>
+
+        @for(level of LevelsStatistics; track level.Level_Number) {
+        <div class="level-card">
+            <div class="level-header">
+                <div class="level-badge level-1">Level {{ level.Level_Number}}</div>
+                <div class="level-title">{{ level.Level_Title}}</div>
+            </div>
+            <div class="level-question">
+                <strong>Question:</strong> {{level.Level_Question}}
+            </div>
+            <div class="level-stats">
+                <div class="level-stat">
+                    <span class="label">Attempts:</span>
+                    <span class="value">{{ level.Total_Attempts }}</span>
+                </div>
+                <div class="level-stat">
+                    <span class="label">Successes:</span>
+                    <span class="value success-text">{{ level.Total_Successes }}</span>
+                </div>
+                <div class="level-stat">
+                    <span class="label">Failures:</span>
+                    <span class="value failure-text">{{ level.Total_Failures }}</span>
+                </div>
+                <div class="level-stat">
+                    <span class="label">Success Rate:</span>
+                    <span class="value rate-text">{{ (level.Total_Successes / level.Total_Attempts) * 100 |
+                        number:'1.0-2'}}%</span>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" [style.width.%]="(level.Total_Successes / level.Total_Attempts) * 100"></div>
+            </div>
+        </div>
+        }
+
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="actions">
+        <button class="btn btn-primary" (click)="restartChallenge()">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M4 10C4 6.686 6.686 4 10 4C11.848 4 13.515 4.813 14.687 6.092M16 10C16 13.314 13.314 16 10 16C8.152 16 6.485 15.187 5.313 13.908"
+                    stroke="white" stroke-width="2" stroke-linecap="round" />
+                <path d="M14 2V6H10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            Restart Challenge
+        </button>
+        <button class="btn btn-secondary" onclick="goHome()">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 10L10 3L17 10M5 8V17H8V13H12V17H15V8" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            Go Home
+        </button>
+    </div>
+</div>

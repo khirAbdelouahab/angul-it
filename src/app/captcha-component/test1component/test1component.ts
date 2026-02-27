@@ -10,36 +10,44 @@ import { MathService } from '../../shared/service/math-service';
   templateUrl: './test1component.html',
   styleUrl: './test1component.css',
 })
-export class Test1component implements ITestComponent, OnInit {
-  ngOnInit(): void {
+export class Test1component implements ITestComponent {
+  question: string = '';
+  Title: string = 'Logic Challenge';
+  constructor() {
     this.currentTest = this.getQuestion();
+    this.question = this.currentTest.question;
   }
+  numberOfFailures: number = 0;
 
   mathService = inject(MathService);
 
   allTests: Test[] = [
     {
-      question: 'question 1',
-      possibilities: ['p1', 'p2'],
-      correctAnswer: 'p1'
+      question: 'What is the capital of France?',
+      Title: this.Title,
+      possibilities: ['madrid', 'paris', 'rabat', 'starsburg'],
+      correctAnswer: 'paris'
     },
     {
-      question: 'question 2',
-      possibilities: ['p3', 'p4'],
-      correctAnswer: 'p3'
+      question: 'ماهو الشهر الذي انزل فيه القران ؟',
+      Title: this.Title,
+      possibilities: ['شعبان', 'محرم', 'رمضان', 'شوال'],
+      correctAnswer: 'رمضان'
     },
     {
-      question: 'question 3',
-      possibilities: ['p5', 'p6'],
-      correctAnswer: 'p6'
+      question: 'which of these protocols works in the application layer ?',
+      Title: this.Title,
+      possibilities: ['TCP', 'HTTP', 'ARP', 'HTML'],
+      correctAnswer: 'HTTP'
     }
   ]
   @Output() onTestResult = new EventEmitter<boolean>;
 
-  question: string = '';
+
 
   currentTest: Test = {
     question: '',
+    Title:this.Title,
     possibilities: null,
     correctAnswer: null
   };
@@ -60,13 +68,11 @@ export class Test1component implements ITestComponent, OnInit {
 
   getQuestion(): Test {
     const value: number = Math.floor(this.mathService.getRandomArbitrary(0, this.allTests.length));
-    console.log(value);
     return this.allTests[value];
   }
 
   restart(): void {
     throw new Error('Method not implemented.');
   }
-
   answer: any;
 }

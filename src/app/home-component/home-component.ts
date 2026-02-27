@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { StateService } from '../shared/service/state-service';
 
 @Component({
   selector: 'app-home-component',
@@ -6,6 +7,13 @@ import { Component } from '@angular/core';
   templateUrl: './home-component.html',
   styleUrl: './home-component.css',
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  constructor(private stateService: StateService) { }
+  ngOnInit(): void {
+    this.stateService.clearAllState();
+  }
 
+  startCaptcha() {
+
+  }
 }

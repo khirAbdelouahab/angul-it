@@ -15,16 +15,21 @@ export class Test2component implements ITestComponent, OnInit {
   ngOnInit(): void {
     this.start();
   }
+  numberOfFailures: number = 0;
   mathService = inject(MathService);
   activeCells: number = 2;
   activeCell = signal('');
+  Title: string = 'Memory Challenge';
+
   currentTest: Test =
     {
-      question: 'question 1',
+      question: 'Select Every Cell Selected By Order',
+      Title: this.Title,
       possibilities: ['1', '2', '3', '4', '5', '6', '7', '8', '9'],
       correctAnswer: []
     }
-  question: string = '';
+  question: string = this.currentTest.question;
+
   answer: string[] = [];
   start() {
     for (let i = 0; i < this.activeCells; i++) {
@@ -54,6 +59,7 @@ export class Test2component implements ITestComponent, OnInit {
         return;
       }
     }
+    this.answer = [];
     this.onTestResult.emit(false);
   }
   restart(): void {

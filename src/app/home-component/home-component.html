@@ -1,1 +1,80 @@
-<p>home-component works!</p>
+<div class="main-container">
+        <div class="content-wrapper">
+            <div class="content-card">
+                
+                <!-- Hero Card -->
+                <div class="hero-card">
+                    <div class="hero-body">
+                        <div class="hero-header">
+                            <div class="robot-icon">🤖</div>
+                            <h1 class="main-title">CAPTCHA Challenge</h1>
+                            <p class="subtitle">Prove you're human, not a robot!</p>
+                        </div>
+                        
+                        <div class="divider"></div>
+                        
+                        <!-- Description Section -->
+                        <div class="description-section">
+                            <h4 class="section-title">
+                                <span class="info-icon">ℹ️</span> About This Challenge
+                            </h4>
+                            <p class="description-text">
+                                This interactive CAPTCHA system consists of <strong>three progressive levels</strong> designed to verify that you're a real person. 
+                                Each challenge tests different aspects of human cognition that are difficult for bots to replicate.
+                            </p>
+                            
+                            <div class="levels-grid">
+                                <div class="level-card level-1">
+                                    <div class="level-content">
+                                        <div class="level-icon">🐻</div>
+                                        <h6 class="level-title">Level 1</h6>
+                                        <small class="level-subtitle">Logic Challenge</small>
+                                    </div>
+                                </div>
+                                <div class="level-card level-2">
+                                    <div class="level-content">
+                                        <div class="level-icon">❌⭕</div>
+                                        <h6 class="level-title">Level 2</h6>
+                                        <small class="level-subtitle">Strategy Test</small>
+                                    </div>
+                                </div>
+                                <div class="level-card level-3">
+                                    <div class="level-content">
+                                        <div class="level-icon">🖼️</div>
+                                        <h6 class="level-title">Level 3</h6>
+                                        <small class="level-subtitle">Image Challenge</small>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="alert-box">
+                                <span class="alert-icon">💡</span>
+                                <div class="alert-content">
+                                    <strong>Note:</strong> You must complete each level sequentially. 
+                                    Progress is automatically saved, so you can return anytime!
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Start Button -->
+                        <button class="start-button" (click)="startCaptcha()">
+                            <span class="button-icon">▶️</span>
+                            Start Challenge
+                        </button>
+                        
+                        <p class="security-note">
+                            <span class="shield-icon">🛡️</span>
+                            Secure • Privacy-focused • No tracking
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Footer Info -->
+                <div class="footer-info">
+                    <p class="footer-text">Built with Angular 21 & Pure CSS</p>
+                    <p class="footer-copyright">© 2026 CAPTCHA Challenge System</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
