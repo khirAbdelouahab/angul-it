@@ -47,4 +47,8 @@ export class ResultComponent implements OnInit {
     this.router.navigate(['']);
   }
 
+  goHome() {
+    this.restartChallenge();
+  }
+
 }

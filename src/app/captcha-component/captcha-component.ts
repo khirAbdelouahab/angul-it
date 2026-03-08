@@ -23,6 +23,7 @@ export class CaptchaComponent implements AfterViewInit, OnDestroy {
   currentComponent?: ComponentRef<ITestComponent>;
   constructor(private router: Router, private stateService: StateService, private testRegistry: TestRegistryService, private toastService: ToastService, @Inject(PLATFORM_ID) private platformId: Object) { }
   ngOnDestroy(): void {
+    console.log('destroyed: captcha-component');    
     this.stateService.clearState('selectedLevel');
   }
 

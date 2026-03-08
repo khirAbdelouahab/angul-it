@@ -3,6 +3,7 @@ import { ITestComponent } from '../interface/itest-component';
 import { Test1component } from '../../captcha-component/test1component/test1component';
 import { Test2component } from '../../captcha-component/test2component/test2component';
 import { TestStatistics } from '../interface/test';
+import { Test3Component } from '../../captcha-component/test3-component/test3-component';
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +14,7 @@ export class TestRegistryService {
   constructor() {
     this.registry.set(1, Test1component);
     this.registry.set(2, Test2component);
+    this.registry.set(3, Test3Component);
   }
 
   register(level: number, component: Type<ITestComponent>) {

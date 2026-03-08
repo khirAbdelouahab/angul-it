@@ -7,7 +7,7 @@ export const resultGuardGuard: CanActivateFn = (route, state) => {
   const level = stateService.loadState('selectedLevel');
   const router = inject(Router);
   if (level) {
-    if (level.selectedLevel == 3) {
+    if (level.selectedLevel == 4) {
       return true;
     }
   }
